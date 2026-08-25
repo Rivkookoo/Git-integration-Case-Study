@@ -1,0 +1,120 @@
+Bottom line: Fabric is ahead on breadth and integrated enterprise ALM, at parity on core Git operations and automation, but behind the strongest developer-oriented products on lightweight isolation, native test-gated PR workflows, provider breadth, and code-first ergonomics.
+1. Scope and Competitive Set
+Primary competitors
+Databricks — closest competitor for unified data engineering, AI, notebooks, pipelines, and lakehouse development.
+Snowflake — closest cloud data-platform competitor, increasingly adding file-based IDE, native Git, notebooks, dbt, and application development.
+Looker — important benchmark for governed semantic-model development.
+Qlik Talend Cloud — relevant for visual/declarative data-pipeline lifecycle management.
+Tableau — direct BI competitor, but architecturally much less Git-oriented.
+Adjacent strategic benchmarks
+dbt Cloud is not a complete Fabric alternative, but is the strongest benchmark for Git-native analytics engineering and PR-based CI.
+SAP Datasphere is an enterprise data-platform competitor whose lifecycle model remains transport- and version-history-centric rather than Git-native.
+2. Historical Evolution
+Platform	Evidence-backed evolution
+Looker	By May 15, 2015, Looker 3.20 mapped each LookML project to a repository and each developer mode to a branch; commits synchronized with Git and deployment merged to the production branch.
+google
+ Current Looker adds personal branches, shared branches, diffs, merge-conflict handling, required LookML/data tests, provider PRs, configurable production branch, and deployment by exact commit SHA or tag through its advanced deployment mode.
+google
+Tableau	On February 19, 2016, Tableau 9.3 introduced workbook revision history to protect publishers from destructive overwrites; recovery initially required download and republish.
+tableau
+ On August 4, 2016, Tableau 10 added web preview, one-click workbook restore, revision limits, and data-source revisioning.
+tableau
+ Current Tableau documentation remains centered on server/cloud revision history rather than a native Git provider/branch workflow.
+tableau
+Databricks	Databricks Repos became GA on August 31, 2021, supporting GitHub, Bitbucket, GitLab, Azure DevOps, notebook repositories, Repos APIs, CLI automation, and CI/CD integration.
+databricks
+ In October 2023, Declarative Automation Bundles entered public preview, expressing analytics and AI projects, environments, permissions, tests, and deployments as source files usable with IDEs and existing CI systems.
+databricks
+ By 2026, Repos had evolved into Git folders, locatable throughout the workspace and supporting more asset types while retaining folder-level permissions.
+microsoft
+Microsoft Fabric	Git integration launched with Fabric preview on May 24, 2023, initially connecting workspaces to Azure Repos and supporting Power BI datasets and reports.
+microsoft
+Branch Out and Related Branches arrived on June 24, 2024; GitHub and GitHub Enterprise Cloud preview followed on July 14, 2024.
+microsoft
++1
+ On March 20, 2026, Branched Workspaces, Selective Branching, and Compare Code Changes entered preview.
+microsoft
+Snowflake	Git repository access reached GA August 7–8, 2024. Snowflake could clone a remote repository and use its files in SQL/Python execution, procedures, and functions.
+snowflake
+ Snowsight Workspaces became GA September 22, 2025, adding a modern file-based editor with Git integration.
+snowflake
+ Current Workspaces support branch creation/switching/fetching, pull, visual diffs, commit/push, and in-product conflict resolution.
+snowflake
+Qlik Talend Cloud	Before native pipeline integration, Qlik illustrated GitHub-based app versioning using Application Automation in March 2024.
+qlik
+ On December 5, 2024, Qlik announced GA GitHub version control, branch work areas, schema-prefix isolation, PR creation, and import/export APIs for pipeline projects.
+qlik
+ Current declarative pipelines serialize projects as human-readable YAML, support validation and API deployment, and allow two-way UI/IDE authoring.
+qlik
+dbt Cloud	An IDE and embedded DAG were already documented in September 2021.
+getdbt
+ dbt’s browser IDE provides visual push, pull, branch, commit, and PR operations.
+getdbt
+ Native Azure DevOps integration added OAuth, repository-permission enforcement, and Slim CI checks in PRs; current provider options include GitHub, GitLab, Azure DevOps, generic Git URL/deploy-key connections, and managed repositories.
+getdbt
++1
+SAP Datasphere	Until March 2025, SAP Datasphere lacked standard built-in version control; users relied on CLI/CSN-JSON exports, snapshots, and custom Git processes. Object version history and restore were then introduced, but not as a native branch/PR architecture.
+sap
+ Current lifecycle management is based on semantic-versioned transport packages, dependency checks, Dev/Test/Prod tenant promotion, scheduling, logs, and Cloud Transport Management.
+sap
++1
+3. Current Capability Matrix
+Platform	Git providers	Branch/runtime model	Collaboration and CI/CD	Governance/deployment
+Fabric	Azure DevOps Cloud, GitHub Cloud, GitHub Enterprise Cloud.
+microsoft
+One workspace ↔ one branch; feature branch generally maps to a Branched Workspace; Selective Branching can include only chosen items and dependencies.
+microsoft
+Commit/update, source-control pane, compare, PR in provider, REST APIs, Deployment Pipelines, code-first fabric-cicd library.
++1
+Workspace RBAC, network controls, deployment stages, Variable Libraries, broad item coverage.
+Databricks	GitHub, GitLab, Bitbucket, Azure DevOps; enterprise/private connectivity options are documented separately.
+databricks
++1
+Git branch is checked out in a Git folder inside a workspace; multiple Git folders can exist at arbitrary workspace depths.
+microsoft
+Visual Git client, CLI/API, merge conflicts, service-principal and Terraform automation; Bundles define test/deploy targets across workspaces, regions, and clouds.
+databricks
++1
+Folder ACLs; infrastructure typically separated into Terraform while assets use Bundles.
+Snowflake	GitHub, GitLab, Bitbucket, Azure DevOps, AWS CodeCommit.
+snowflake
+Remote repository becomes a Snowflake clone; a Snowsight Workspace synchronizes to a branch.
+snowflake
++1
+Fetch, branch, pull, diff, commit/push, conflict resolution; repository files can directly drive SQL/Python execution and handlers.
+snowflake
+API integrations, secrets/OAuth/PATs, Snowflake role privileges; external CI remains provider-driven.
+Looker	Any SSH/HTTPS Git service; documentation names GitHub, GitLab, Bitbucket.
+google
++1
+One LookML project ↔ one repository; each developer gets a protected personal branch and local developer copy.
+google
+Shared branches, provider PRs, LookML validation, data-test gates, diffs, conflict resolution.
+google
+Dedicated deploy permission; deploy latest production branch or an exact SHA/tag via UI, API, or webhook.
+Qlik Talend Cloud	GitHub only; GitHub Enterprise Cloud/Server and fine-grained PATs are not supported.
+qlik
+Branch maps to a project work area; work areas can be shared, and schema prefixes isolate branch-created datasets.
+qlik
+Commit/push, selective remote apply, PR creation, GitHub approval/merge, YAML validation and import APIs.
+qlik
++1
+Spaces and repository permissions must be aligned; environment bindings/connections stay outside source control.
+dbt Cloud	GitHub, GitLab, Azure DevOps; generic SSH/deploy-key Git; managed repo.
+getdbt
+Repository-based dbt project; branches develop against isolated schemas, while PR CI uses dedicated temporary schemas.
+getdbt
+Best-in-class PR checks, build/test modified models, visual Git IDE, CLI and local-IDE interoperability.
+getdbt
++1
+Repository permissions enforced through provider OAuth; deployment environments/jobs remain centrally configured.
+Tableau	No native Git provider model found in the reviewed official documentation.	Published workbook/data-source revisions, not branches.
+tableau
+Preview, download, restore, and delete revisions; Git-based deployment requires external scripting or third-party tooling.	Familiar and safe for publishers, but limited code review, merge, branch, and CI semantics.
+SAP Datasphere	No native Git provider model for general Datasphere objects found in reviewed sources.	Object versions plus transport packages across tenants/spaces.
+sap
++1
+CLI/JSON export permits custom Git solutions; Cloud Transport Management schedules and automates imports.
+sap
++1
+Strong package dependency resolution, semantic versioning, transport logs, tenant separation, and auditability.

@@ -1,6 +1,12 @@
-# Why Customers Needed Git Integration in Fabric
+# Git Integration in Fabric — The Why, What, and How
+
+## Why? (The Customer Problem)
 
 Customers needed Git integration in Fabric because before Git, Fabric/Power BI development was largely workspace-based, which created major challenges for enterprise teams.
+
+Customers were telling Microsoft:
+
+> "We're building enterprise data platforms, but we don't have the same development practices we use for software engineering."
 
 ## Before Git Integration
 
@@ -204,6 +210,156 @@ Every change now has:
 - Commit message
 - Diff history
 
+## What? (What Microsoft Built)
+
+Microsoft introduced Git Integration as the source-control layer for Fabric.
+
+### Core Concept
+
+Git becomes the source of truth for definitions.
+
+```
+Fabric Workspace
+       ↕
+      Git
+       ↕
+Azure DevOps / GitHub
+```
+
+Fabric serializes items into files that can be committed, reviewed, branched, merged, and versioned.
+
+### What Customers Got
+
+**Source Control**
+- Commit history
+- Rollback
+- Version tracking
+- Change auditing
+
+**Branching**
+
+```
+main
+ ├─ feature-a
+ ├─ feature-b
+ └─ hotfix
+```
+
+Developers can work independently.
+
+**Pull Requests**
+
+```
+Developer
+    ↓
+Commit
+    ↓
+Pull Request
+    ↓
+Review
+    ↓
+Merge
+```
+
+Changes can now be reviewed before reaching production.
+
+**Automation**
+- CI/CD pipelines
+- REST API automation
+- Service principal deployments
+- Dev/Test/Prod workflows
+
+**Team Collaboration**
+
+Different personas can work simultaneously — Data Engineers, Analytics Engineers, BI Developers, Data Scientists, Fabric Developers — without constantly overwriting each other.
+
+## How? (How It Works)
+
+### Workspace-to-Branch Model
+
+A Fabric workspace connects to a repository, branch, and folder:
+
+```
+Fabric Workspace
+        ↓
+Azure DevOps Repo
+        ↓
+main branch
+        ↓
+/sales-analytics
+```
+
+### Commit Flow
+
+When a developer changes an item:
+
+```
+Workspace Change
+        ↓
+Commit
+        ↓
+Git Repository
+```
+
+Fabric converts the item into files and stores them in Git. Examples:
+
+- Notebooks → `.py`
+- Reports → PBIR
+- Semantic Models → TMDL
+- Pipelines → JSON
+
+### Update Flow
+
+When changes are merged into Git:
+
+```
+Git Commit
+      ↓
+Update
+      ↓
+Workspace
+```
+
+Fabric pulls the latest definitions and updates the workspace.
+
+### Branching Flow
+
+For feature development:
+
+```
+main
+   ↓
+feature/new-dashboard
+```
+
+A developer can create a branch, work safely, submit a PR, and merge into main — preventing breaks in shared environments.
+
+### Deployment Flow
+
+Git itself doesn't deploy to production. Instead:
+
+```
+Git
+  ↓
+Validation
+  ↓
+Deployment Pipeline
+  ↓
+Production Workspace
+```
+
+Git manages source control. Deployment Pipelines manage environment promotion.
+
+## The Strategic Vision
+
+Microsoft's long-term goal was not simply "store Fabric files in Git." The goal was:
+
+> "Make Fabric a first-class citizen in enterprise software development."
+
+So that Fabric assets can be managed exactly like application code, Infrastructure-as-Code, SQL projects, and data engineering pipelines — using the same GitHub, Azure DevOps, Pull Requests, CI/CD, Branching, and Governance frameworks already used by enterprise engineering teams.
+
 ## In One Sentence
 
-The primary reason customers demanded Git integration was that Fabric was being adopted for enterprise-scale analytics and data platforms, but before Git it lacked the version control, branching, collaboration, governance, and CI/CD capabilities that software engineering teams considered mandatory.
+**Why:** Customers needed enterprise-grade collaboration, governance, and CI/CD.
+**What:** Microsoft built Git integration that turns Fabric artifacts into source-controlled assets.
+**How:** A Fabric workspace connects to a Git branch, serializes item definitions into files, and uses commits, branches, pull requests, and deployment pipelines to manage the software lifecycle.

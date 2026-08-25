@@ -1,0 +1,215 @@
+Based on the customer research, community feedback, and documented usage patterns, there are five primary personas for Git Integration in Microsoft Fabric.
+
+1. Professional Data Engineer
+What they build
+Lakehouses
+Notebooks
+Spark Jobs
+Data Pipelines
+Dataflows
+Eventstreams
+Why they need Git
+
+They already use:
+
+Azure DevOps
+GitHub
+CI/CD pipelines
+
+for code and infrastructure.
+
+Their expectation is:
+
+Code
+Infrastructure
+Data Pipelines
+Fabric Assets
+↓
+Same Git Workflow
+
+Top needs
+Branching
+Pull Requests
+Automation
+Service Principals
+CI/CD
+Common quote themes
+
+"Fabric needs to fit into our existing DevOps process."
+
+"Git readiness should be Day-1."
+
+2. Analytics Engineer / BI Developer
+What they build
+Semantic Models
+Power BI Reports
+Metrics
+Paginated Reports
+Why they need Git
+
+Historically they struggled with:
+
+Report overwrites
+Lost changes
+No rollback
+Shared workspace conflicts
+Top needs
+Version history
+Rollback
+Change tracking
+Safe collaboration
+Success metric
+
+Instead of:
+
+Report v1
+Report v2
+Report FINAL
+Report FINAL2
+
+
+they want:
+
+Git History
+↓
+Version Control
+
+3. Enterprise Platform Owner / Fabric Administrator
+What they own
+Fabric environment
+Governance
+Security
+Deployment strategy
+Why they need Git
+
+They care less about coding and more about:
+
+Compliance
+Auditability
+Change management
+Disaster recovery
+Top needs
+Traceability
+Approval workflows
+Separation of duties
+Production controls
+Common concern
+
+"Who changed production and when?"
+
+4. DevOps / Platform Engineering Teams
+What they own
+CI/CD
+Automation
+Infrastructure
+Deployment frameworks
+Why they need Git
+
+They want Fabric to behave like:
+
+Application code
+Terraform
+Bicep
+SQL projects
+Top needs
+REST APIs
+Service Principals
+Automated deployment
+Branch policies
+Pipeline integration
+Feedback that drove roadmap
+
+This persona was a major driver behind:
+
+Git REST APIs
+Service Principal support
+Azure DevOps integration
+GitHub integration
+5. Data Science & Advanced Analytics Teams
+What they build
+ML Experiments
+Models
+Notebooks
+AI solutions
+Why they need Git
+
+They already work in Git-centric environments.
+
+They expect:
+
+Notebook
+Model
+Code
+↓
+Git
+
+Top needs
+Experiment versioning
+Collaboration
+Reproducibility
+Branching
+Secondary Persona: Team Leads & Engineering Managers
+
+These users are often not committing code themselves.
+
+They care about:
+
+Team productivity
+Review processes
+Release quality
+Governance
+Questions they ask
+Are developers working safely?
+Can we review changes before production?
+Can we audit releases?
+Persona Prioritization Over Time
+2023 (Launch)
+
+Primary focus:
+
+BI Developers
+Data Engineers
+
+Main problem:
+
+"I need version control and rollback."
+
+2024
+
+Primary focus:
+
+Data Engineers
+DevOps Engineers
+
+Main problem:
+
+"I need GitHub, APIs, and CI/CD."
+
+2025
+
+Primary focus:
+
+Enterprise Platform Owners
+DevOps Teams
+
+Main problem:
+
+"I need automation and governance."
+
+2026
+
+Primary focus:
+
+Professional Developers
+Large Enterprise Teams
+
+Main problem:
+
+"I need branching, workspace isolation, diffs, and scalable development workflows."
+
+If you were creating a Fabric Git Integration persona framework for design discussions, I would group them into 3 macro-personas:
+Persona	GoalCreator (BI Dev, Data Engineer, Data Scientist)	Build and version Fabric assets
+Collaborator (Professional Developer, Team Lead)	Review, merge, and coordinate changes
+Operator (Admin, DevOps, Platform Owner)	Govern, automate, and deploy safely
+
+This Creator → Collaborator → Operator model is the simplest way to explain who Git Integration is for and why each group cares about it.

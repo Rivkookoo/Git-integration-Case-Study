@@ -1,0 +1,209 @@
+# Why Customers Needed Git Integration in Fabric
+
+Customers needed Git integration in Fabric because before Git, Fabric/Power BI development was largely workspace-based, which created major challenges for enterprise teams.
+
+## Before Git Integration
+
+A Fabric workspace was essentially the single source of truth.
+
+Teams had to:
+
+- Make changes directly in shared workspaces.
+- Coordinate manually to avoid overwriting each other's work.
+- Duplicate workspaces to experiment safely.
+- Use naming conventions like:
+  - `Workspace-Dev`
+  - `Workspace-Test`
+  - `Workspace-Backup`
+- Manually document changes and versions.
+- Use Deployment Pipelines without true source control.
+
+## Common Customer Pain Points
+
+### 1. No Version History
+
+Customers couldn't answer:
+
+- What changed?
+- Who changed it?
+- When was it changed?
+- Can we roll back?
+
+If a report, semantic model, notebook, or pipeline was modified incorrectly, recovery was difficult.
+
+### 2. No Branching
+
+Software developers were accustomed to:
+
+```
+main
+ ├─ feature-A
+ ├─ feature-B
+ └─ bugfix-C
+```
+
+Fabric users had no equivalent. This meant:
+
+- Multiple people editing the same artifact.
+- Frequent conflicts.
+- Risk of breaking production assets.
+
+### 3. No Pull Requests or Code Reviews
+
+Changes went directly into shared workspaces. Organizations wanted:
+
+```
+Developer
+ ↓
+Pull Request
+ ↓
+Review
+ ↓
+Merge
+ ↓
+Deploy
+```
+
+Instead they had:
+
+```
+Developer
+ ↓
+Edit Production Workspace
+```
+
+which was unacceptable for many enterprise customers.
+
+### 4. CI/CD Was Difficult
+
+Customers wanted:
+
+```
+Git
+ ↓
+Build Validation
+ ↓
+Test Environment
+ ↓
+Production
+```
+
+Without Git, deployment pipelines could move content between workspaces, but there was no source-controlled artifact to validate, review, or automate.
+
+### 5. Audit and Compliance Requirements
+
+Large enterprises often require:
+
+- Change history
+- Approval process
+- Traceability
+- Rollback capability
+
+Before Git integration, Fabric could not easily satisfy the same governance standards used for application development.
+
+### 6. Multiple Developers Couldn't Work Efficiently
+
+Consider a Fabric project with:
+
+- UX/BI developer
+- Data engineer
+- Data scientist
+- Analytics engineer
+
+All working on:
+
+- Notebooks
+- Pipelines
+- Semantic models
+- Reports
+
+Without Git:
+
+- People overwrote each other's changes.
+- Teams created multiple workspace copies.
+- Merging work was manual.
+
+## Why Customers Specifically Asked for Git
+
+Most Fabric customers are already using:
+
+- Azure DevOps
+- GitHub
+- GitHub Enterprise
+
+for:
+
+- Application development
+- Infrastructure-as-Code
+- Data engineering
+
+When Fabric launched, customers immediately asked:
+
+> "Why can't our Fabric assets participate in the same DevOps process as the rest of our software?"
+
+They wanted Fabric artifacts to behave like:
+
+- Source code
+- ARM/Bicep templates
+- Terraform
+- Data pipelines
+- SQL projects
+
+## What Git Integration Enabled
+
+**Version Control**
+
+```
+Commit
+History
+Rollback
+Compare
+```
+
+**Team Collaboration**
+
+```
+Feature Branches
+Pull Requests
+Code Reviews
+Merge Workflows
+```
+
+**Safe Development**
+
+```
+Developer Workspace
+ ↓
+Git Branch
+ ↓
+Review
+ ↓
+Merge
+```
+
+instead of editing shared environments.
+
+**Enterprise CI/CD**
+
+```
+Git
+ ↓
+Validation
+ ↓
+Deployment Pipeline
+ ↓
+Production
+```
+
+**Auditability**
+
+Every change now has:
+
+- Author
+- Timestamp
+- Commit message
+- Diff history
+
+## In One Sentence
+
+The primary reason customers demanded Git integration was that Fabric was being adopted for enterprise-scale analytics and data platforms, but before Git it lacked the version control, branching, collaboration, governance, and CI/CD capabilities that software engineering teams considered mandatory.

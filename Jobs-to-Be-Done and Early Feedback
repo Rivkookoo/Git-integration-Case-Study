@@ -1,0 +1,43 @@
+# Fabric Git Integration — Jobs-to-Be-Done and Early Feedback
+
+## Earliest Documented Product Framing
+
+The earliest documented product framing in Fabric Git integration identifies three foundational motivations:
+
+1. Backup and versioning
+2. The ability to revert
+3. Collaboration without developers "stepping on each other's toes"
+
+It also positions developer adoption around familiar tools, IDE integration, automated testing, work-item tracking, metrics, and reporting.
+
+These motivations match the initial **May 24, 2023** release, which introduced Azure Repos support for Power BI datasets and reports with commit, update, undo, branch, and conflict-handling workflows.
+
+## Most Common Pre-Launch / Early-Adoption Jobs-to-Be-Done
+
+1. Recover from mistakes through version history and rollback.
+2. Prevent accidental overwrites during simultaneous authoring.
+3. Establish an auditable source of truth outside the live workspace.
+4. Use branches and pull requests for isolation and review.
+5. Fit Fabric into existing Dev/Test/Prod processes, rather than creating a Fabric-specific exception.
+6. Automate promotion and validation instead of relying on manual portal operations.
+
+## Collaboration and Branching: Valuable, but the Workspace Model Adds Friction
+
+Users appreciate branching, particularly the ability to isolate work, but repeatedly struggle with the relationship between one workspace and one branch.
+
+Research found that creating a workspace for every branch felt unintuitive and contributed to:
+
+- Workspace sprawl
+- Repetitive setup
+- Governance overhead
+- Limited developer autonomy
+
+## Positive Feedback, Criticisms, Blockers, and Remaining Needs
+
+### Positive Feedback
+
+- Native backup, history, rollback, and branching are viewed as necessary foundations.
+- Branching strategies are appreciated when they provide safe isolation.
+- Selective item copying aligns with Fabric's live-data model once users understand why it differs from repository cloning.
+- Folder synchronization received immediate positive community reaction.
+- Adoption grew rapidly during 2024, indicating substantial customer value despite unresolved gaps.

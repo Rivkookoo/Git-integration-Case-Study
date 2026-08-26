@@ -1,0 +1,180 @@
+A simple way to think about it is:
+
+Git World (Databricks, VS Code, GitHub, etc.)
+
+A branch is just a different version of files.
+
+Repository
+   ├── main
+   ├── feature-a
+   └── feature-b
+
+
+When you create a branch:
+
+main → feature-a
+
+
+you don't create a new environment.
+
+You simply tell Git:
+
+"I want another version of these files."
+
+The same IDE can switch between branches:
+
+VS Code
+   ↓
+main
+
+VS Code
+   ↓
+feature-a
+
+
+Nothing else changes.
+
+Fabric World
+
+A Fabric workspace is not just files.
+
+It contains:
+
+Reports
+Semantic models
+Pipelines
+Notebooks
+Lakehouses
+Connections
+Permissions
+Runtime state
+
+Think of it as a mini application environment.
+
+Workspace
+   ├── Files
+   ├── Metadata
+   ├── Security
+   ├── Connections
+   └── Running Assets
+
+
+Because of that, Fabric can't always treat a branch as "just another folder of files."
+
+Git Logic
+Branch
+    =
+Another copy of code
+
+flowchart LR
+
+A[main]
+
+A --> B[feature-a]
+
+A --> C[feature-b]
+
+
+Very cheap.
+
+Very lightweight.
+
+Fabric Logic
+
+Fabric asks:
+
+"If two developers are changing the same workspace, how do we keep them from impacting each other?"
+
+Their answer was:
+
+Branch
+      +
+Workspace Isolation
+
+flowchart LR
+
+A[Main Workspace]
+
+A --> B[Feature Workspace A]
+
+A --> C[Feature Workspace B]
+
+B --> D[feature-a]
+
+C --> E[feature-b]
+
+Why Branch Out Exists
+
+In Git tools:
+
+Branch
+     ↓
+Work
+
+
+In Fabric:
+
+Branch
+     ↓
+Need isolated workspace
+     ↓
+Work
+
+
+Branch Out automates creating that isolated workspace.
+
+The Core Difference
+Traditional Git
+Branch = Code Isolation
+
+
+You isolate the files.
+
+Fabric
+Branch = Code Isolation
+
+Workspace = Runtime Isolation
+
+
+You often need both.
+
+Real-World Analogy
+Git / VS Code
+
+Think of a Word document.
+
+Proposal.docx
+
+
+Create a branch:
+
+Proposal_v2.docx
+
+
+It's just another copy of the document.
+
+Fabric
+
+Think of an entire restaurant.
+
+Kitchen
+Staff
+Menu
+Inventory
+Customers
+
+
+Creating a branch isn't enough.
+
+If you want to experiment safely, you may need:
+
+Restaurant A (main)
+
+Restaurant B (feature)
+
+
+That's why Fabric introduced Branch Out.
+
+One-Sentence Summary
+
+In most Git tools, a branch is just another version of files; in Fabric, a branch often needs its own workspace because the workspace is a live analytics environment, not just a collection of files.

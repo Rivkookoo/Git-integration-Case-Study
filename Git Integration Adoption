@@ -1,0 +1,32 @@
+Microsoft Fabric Git Integration Adoption (One-Slide Version)
+Adoption Snapshot
+~10,000 Monthly Active Users (MAU)
+Across ~4,500 Active Tenants
+Reported internally around September 2024
+Growing at >7% month-over-month
+What This Indicates
+Strong early adoption despite being relatively new.
+Demand is driven by:
+Version control
+Collaboration
+CI/CD
+Governance and auditability
+Adoption has continued to grow as Microsoft added:
+GitHub support
+REST APIs
+Service Principals
+Folder support
+Branched Workspaces
+Selective Branching
+Compare Code Changes
+Key Message
+
+Git Integration has evolved from a niche Power BI source-control feature into a foundational ALM capability for Fabric, serving thousands of organizations and becoming a prerequisite for enterprise-scale development workflows.
+
+Slide Title Suggestion
+
+Git Integration Adoption & Customer Demand
+
+10K+ Monthly Active Users | 4.5K+ Active Tenants | >7% MoM Growth (2024)
+
+Driven by enterprise needs for version control, collaboration, governance, and CI/CD across Fabric workloads.
